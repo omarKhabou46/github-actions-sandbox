@@ -1,0 +1,14 @@
+name: workflow for testing
+on: [push]
+jobs:
+  first_job:
+    runs_on: ubuntu-latest
+    steps:
+      - name: install node and npm
+        run: apt install nodejs npm -y
+      
+      - name: verify node 
+        run: node -v
+
+
+
