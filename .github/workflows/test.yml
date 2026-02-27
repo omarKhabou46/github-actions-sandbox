@@ -1,14 +1,11 @@
-name: workflow for testing
-on: [push]
+name: test project
+on: push
+
 jobs:
-  first_job:
-    runs-on: ubuntu-latest
+  test_job:
+    runs-on: ubuntu/latest
     steps:
-      - name: install node and npm
-        run: apt install nodejs npm -y
-      
-      - name: verify node 
-        run: node -v
-
-
-
+      - name: Get code
+        uses: action/checkout@v6
+      - name: see the data 
+        run: ls
