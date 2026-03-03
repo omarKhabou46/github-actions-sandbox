@@ -2,7 +2,7 @@ name: first workflow
 on: push
 
 jobs:
-  first-job:
+  unit-test-job:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Node.js environment
@@ -21,3 +21,23 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm test
+  deploy-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node.js environment
+        uses: actions/checkout@v3
+
+      - name: verify files
+        run: ls -a
+
+      - name: install node js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: test node version
+        run: node --version
+      - name: install dependencies
+        run: npm ci
+      - name: Build our Project
+        run: npm build
