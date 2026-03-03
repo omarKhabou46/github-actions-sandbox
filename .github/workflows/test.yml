@@ -1,11 +1,9 @@
-name: test project
-on: push
+name: first workflow
+on: workflow_dispatch
 
 jobs:
-  test_job:
-    runs-on: ubuntu/latest
+  first-job:
+    runs-on: ubuntu-latest
     steps:
-      - name: Get code
-        uses: action/checkout@v6
-      - name: see the data 
-        run: ls
+      - name: test ls commande
+        run: ls -a
